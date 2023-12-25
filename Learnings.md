@@ -75,3 +75,12 @@ while a != 5 {
 }
 ```
 
+## Running program
+```bash
+cargo run
+```
+
+- If you add files to a `bin` directory in the `src` directory, then you can run those files as
+```bash
+cargo run --bin filename
+```
