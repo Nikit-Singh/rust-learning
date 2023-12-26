@@ -7,4 +7,10 @@
 // * Use a variable set to either true or false
 // * Use a match expression to determine which message to display
 
-fn main() {}
+fn main() {
+    let working = true;
+    match working {
+        true => println!("I'm working rn."),
+        false => println!("I'm not working rn."),
+    }
+}
