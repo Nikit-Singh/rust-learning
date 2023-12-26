@@ -121,3 +121,55 @@ fn which_way(go: Direction) {
     }
 }
 ```
+
+## Struct
+- A type that contains multiple pieces of data
+- Cannot have partial values, either all data should be there or none
+- Each piece of data is called field
+```rust
+struct ShippingBox {
+    depth: i32,
+    height: i32,
+    width: i32,
+}
+
+let my_box = ShippingBox {
+    depth: 3,
+    width: 2,
+    height: 5,
+}
+
+println!("{:?}", my_box.height);
+```
+
+## Tuple
+- A type of record
+- useful to return data from functions and can be easily destructured
+```rust
+fn one_two_three() -> (i32, i32, i32) {
+    (1, 2, 3)
+}
+let num = one_two_three();
+let (one, two, three) = one_two_three();
+println!("{:?} {:?}", num.0, one);
+```
+
+## Expressions
+- Rust is a expression based language
+- Most things are evaluated and return something
+```rust
+let my_num = 3;
+let is_lt_4 = if my_num < 5 {
+    true
+} else {
+    false
+};
+// or
+let is_lt_5 = my_num < 5;
+
+let val = 3;
+let greeting = matxh val {
+    1 => "hello",
+    _ => "goodbye",
+}
+```

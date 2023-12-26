@@ -12,4 +12,22 @@
 // * Use a match expression to determine which message
 //   to print
 
-fn main() {}
+fn print_msg(is_big: bool) {
+    let res = match is_big {
+        true => "is big",
+        false => "is small",
+    };
+    println!("{:?}", res);
+}
+
+fn main() {
+    let val = 101;
+
+    let is_big = if val > 0 {
+        true
+    } else {
+        true
+    };
+
+    print_msg(is_big);
+}
