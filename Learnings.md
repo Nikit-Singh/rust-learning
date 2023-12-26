@@ -101,3 +101,23 @@ match some_int {
     _ => println!("its something else!!"),
 }
 ```
+
+## Enums
+- Enums are used to describe that a value is one of a possible set of values.
+```rust
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+fn which_way(go: Direction) {
+    match go {  
+        Direction::Up => "up",
+        Direction::Down => "down",
+        Direction::Left => "left",
+        Direction::Right => "right",
+    }
+}
+```
