@@ -173,3 +173,56 @@ let greeting = matxh val {
     _ => "goodbye",
 }
 ```
+
+## Ownership
+- Rust uses "Ownership" model to manage memory instead of other methods like "Garbage collection" or manually managing memory
+- It means the owner is responsible for cleaning the memory
+- Memory can either be "moved" or "borrowed"
+```rust
+// Ownership
+fn main() {
+    let x = 5;
+    // here the main fn transfers the ownership to some_fn and later when some_fn finishes
+    // executing the x var is removed from memory
+    some_fn(x);
+    some_fn2(x); // This will give error as only one function can own the variable at once
+}
+// Borrowing
+fn main() {
+    let x = 5;
+    // now the x variable will be deleted from memory only when the main fn execution completes
+    some_fn(&x);
+    some_fn2(&x); // This will work as the value of x now is borrowed instead of being transferred to some_fn
+}
+```
+
+## impl
+- This keyword is used to define implementations on types.
+- This is where you define methods associated with a type. 
+
+```rust
+// 1. Implement methods on structs or enums:
+// In this example, `impl` is used to define a method `area` on the `Circle` struct.
+struct Circle {
+    radius: f64,
+}
+
+impl Circle {
+    fn area(&self) -> f64 {
+        std::f64::consts::PI * (self.radius * self.radius)
+    }
+}
+
+
+// 2. Implement traits for types:
+// In this example, `impl` is used to implement the `HasArea` trait for the `Circle` type.
+trait HasArea {
+    fn area(&self) -> f64;
+}
+
+impl HasArea for Circle {
+    fn area(&self) -> f64 {
+        std::f64::consts::PI * (self.radius * self.radius)
+    }
+}
+```
