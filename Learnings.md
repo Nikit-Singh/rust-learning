@@ -1,16 +1,41 @@
 # Learnings
 
+<!--toc:start-->
+
+- [Learnings](#learnings)
+  - [Basic data types](#basic-data-types)
+  - [Variable](#variable)
+  - [Functions](#functions)
+  - [Macros](#macros)
+    - [println macro](#println-macro)
+  - [Control flow](#control-flow)
+    - [if else](#if-else)
+    - [infinite loop](#infinite-loop)
+    - [while loop](#while-loop)
+  - [Running program](#running-program)
+  - [Match Expression](#match-expression)
+  - [Enums](#enums)
+  - [Struct](#struct)
+  - [Tuple](#tuple)
+  - [Expressions](#expressions)
+  - [Ownership](#ownership)
+  - [impl](#impl)
+  <!--toc:end-->
+
 ## Basic data types
+
 - Boolean - true, false
 - Integer - 2, -9
 - Float / Double - 0.3423, 1.1
-- Character - 'A', '8',
+- Character - 'A', '8'
 - String - "Hello", "!"
 
 ## Variable
+
 - Used to assign data to a temporary memory location, helps us easily work with memory
 - Defined using `let` keyword
 - Are by default immutable, but we can make them mutable with `mut` keyword
+
 ```rust
 let two = 2;
 let mut my_name = "Nikit";
@@ -18,8 +43,10 @@ let my_name = gaming_name;
 ```
 
 ## Functions
+
 - Declared with `fn` keyword
 - Last statement is returned by default
+
 ```rust
 fn add(a: i32, b: i32) -> i32 {
     a + b
@@ -27,10 +54,12 @@ fn add(a: i32, b: i32) -> i32 {
 ```
 
 ## Macros
+
 - Macros expand into additional code. `println!` is a macro which execute some code to print the out on terminal.
 - Difference between function and macro is `!` at the end of it's name when calling it.
 
 ### println macro
+
 ```rust
 let life = true;
 println!("{}, life"); // This can only display the trait which implements Display trait
@@ -42,7 +71,9 @@ println!("{life:?}");
 ## Control flow
 
 ### if else
+
 - Condition doesn't require to be wrapped in brackets
+
 ```rust
 let a = 100
 if a > 100 {
@@ -55,6 +86,7 @@ if a > 100 {
 ```
 
 ### infinite loop
+
 ```rust
 let mut a = 0;
 loop {
@@ -67,6 +99,7 @@ loop {
 ```
 
 ### while loop
+
 ```rust
 let mut a = 0;
 while a != 5 {
@@ -76,17 +109,21 @@ while a != 5 {
 ```
 
 ## Running program
+
 ```bash
 cargo run
 ```
 
 - If you add files to a `bin` directory in the `src` directory, then you can run those files as
+
 ```bash
 cargo run --bin filename
 ```
 
 ## Match Expression
+
 - Similar to switch, but should be exaustive (All options should be accounted for)
+
 ```rust
 let some_bool = false;
 match some_bool {
@@ -103,7 +140,9 @@ match some_int {
 ```
 
 ## Enums
+
 - Enums are used to describe that a value is one of a possible set of values.
+
 ```rust
 enum Direction {
     Up,
@@ -113,7 +152,7 @@ enum Direction {
 }
 
 fn which_way(go: Direction) {
-    match go {  
+    match go {
         Direction::Up => "up",
         Direction::Down => "down",
         Direction::Left => "left",
@@ -123,9 +162,11 @@ fn which_way(go: Direction) {
 ```
 
 ## Struct
+
 - A type that contains multiple pieces of data
 - Cannot have partial values, either all data should be there or none
 - Each piece of data is called field
+
 ```rust
 struct ShippingBox {
     depth: i32,
@@ -143,8 +184,10 @@ println!("{:?}", my_box.height);
 ```
 
 ## Tuple
+
 - A type of record
 - useful to return data from functions and can be easily destructured
+
 ```rust
 fn one_two_three() -> (i32, i32, i32) {
     (1, 2, 3)
@@ -155,8 +198,10 @@ println!("{:?} {:?}", num.0, one);
 ```
 
 ## Expressions
+
 - Rust is a expression based language
 - Most things are evaluated and return something
+
 ```rust
 let my_num = 3;
 let is_lt_4 = if my_num < 5 {
@@ -175,9 +220,11 @@ let greeting = matxh val {
 ```
 
 ## Ownership
+
 - Rust uses "Ownership" model to manage memory instead of other methods like "Garbage collection" or manually managing memory
 - It means the owner is responsible for cleaning the memory
 - Memory can either be "moved" or "borrowed"
+
 ```rust
 // Ownership
 fn main() {
@@ -197,8 +244,9 @@ fn main() {
 ```
 
 ## impl
+
 - This keyword is used to define implementations on types.
-- This is where you define methods associated with a type. 
+- This is where you define methods associated with a type.
 
 ```rust
 // 1. Implement methods on structs or enums:
@@ -213,7 +261,6 @@ impl Circle {
     }
 }
 
-
 // 2. Implement traits for types:
 // In this example, `impl` is used to implement the `HasArea` trait for the `Circle` type.
 trait HasArea {
@@ -225,4 +272,20 @@ impl HasArea for Circle {
         std::f64::consts::PI * (self.radius * self.radius)
     }
 }
+```
+
+## Vectors
+- Vec is a macro
+```rust
+let vectooooor = vec![1,6,3];
+// or
+let mut vectooooor = Vector::new();
+vectooooor.push(1);
+vectooooor.push(6);
+vectooooor.push(3);
+vectooooor.pop();
+vectooooor.len();
+
+// accessing a value
+let x = vectooooor[1]; // 6
 ```
